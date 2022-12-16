@@ -29,7 +29,7 @@ public class Bankomat {
             System.out.println("Welcome " + loggedInUser.getName());
         }
 
-        System.out.println("Accountnumber : Balans");
+        System.out.println("Account number : Balance");
         for (Account currentAccount : loggedInUser.getAccounts()) {
             System.out.println(currentAccount.getAccountNumber() + " : "
                     + CheckAccountBalance(this.loggedInUser, "" + currentAccount.getAccountNumber()));
@@ -38,7 +38,7 @@ public class Bankomat {
         int menychoice;
         do {
             printMenu();
-            menychoice = scannerGetInt("Meny Command: ");
+            menychoice = scannerGetInt("Menu Command: ");
 
             switch (menychoice) {
                 case 1:
@@ -51,7 +51,7 @@ public class Bankomat {
                 case 2:{
                     Account currentAccount=null;
                     do{
-                        String accountNumber = scannerGetString("Write Accountnumber");
+                        String accountNumber = scannerGetString("Write Account number");
                         currentAccount=getCorrectAccount(accountNumber);
                     } while (currentAccount==null);
                     int amount = scannerGetInt("Write Amount to deposit");
@@ -61,7 +61,7 @@ public class Bankomat {
                 case 3:{
                     Account currentAccount=null;
                     do{
-                        String accountNumber = scannerGetString("Write Accountnumber");
+                        String accountNumber = scannerGetString("Write Account number");
                         currentAccount=getCorrectAccount(accountNumber);
                     } while (currentAccount==null);
                     int amount = scannerGetInt("Write Amount to withdraw");
@@ -167,7 +167,7 @@ public class Bankomat {
         Integer currentAmount = account.accountBalance;
         currentAmount += money;
         account.setAccountBalance(currentAmount);
-        System.out.println("New Balans on Accountnumber: " + account.getAccountNumber() + " is " + account.getAccountBalance());
+        System.out.println("New Balance on Accountnumber: " + account.getAccountNumber() + " is " + account.getAccountBalance());
         return account;
     }
 
@@ -179,7 +179,7 @@ public class Bankomat {
         } 
         currentAmount -= money;
         account.setAccountBalance(currentAmount);
-        System.out.println("New Balans on Accountnumber: " + account.getAccountNumber() + " is " + account.getAccountBalance());
+        System.out.println("New Balance on Accountnumber: " + account.getAccountNumber() + " is " + account.getAccountBalance());
         return account;
     }
 

@@ -26,6 +26,7 @@ public class BankomatTest {
 
 
 
+
     @BeforeEach
     public void setUp() {
         bankMock = mock(IBank.class);
@@ -33,7 +34,6 @@ public class BankomatTest {
         users = new LinkedList<>();
         user1Account = new ArrayList<>();
         user1 = new User("SunesKorvar", "KörvEGött", user1Account);
-        user1Account.add(new Account("1", 0));
         user2Account = new ArrayList<>();
         user2 = new User("BörjesBurgare", "BurgareEBäst", user2Account);
         account = new Account("1", 0);
@@ -42,7 +42,7 @@ public class BankomatTest {
 
     @Test
     void logInTest_Success() {
-
+        user1Account.add(new Account("1", 0));
         users.add(user1);
 
         when(bankMock.getUsers()).thenReturn(users);
@@ -137,8 +137,8 @@ public class BankomatTest {
         user2Account.add(new Account("2", 500));
         users.add(user2);
 
-        var testUser1 = bankomat.CheckAccountBalance(user1, "1");
-        var testUser2 = bankomat.CheckAccountBalance(user2, "2");
+        int testUser1 = bankomat.CheckAccountBalance(user1, "1");
+        int testUser2 = bankomat.CheckAccountBalance(user2, "2");
 
         assertEquals(testUser1, testUser2);
     }
